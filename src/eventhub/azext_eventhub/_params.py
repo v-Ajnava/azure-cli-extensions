@@ -45,12 +45,13 @@ def load_arguments_namespace(self, _):
     with self.argument_context('eh namespace authorizationrule regenerate-keys') as c:
         c.argument('key_type', options_list=['--key-name'], arg_type=get_enum_type(['PrimaryKey', 'SecondaryKey']))
 
+
 # region - Eventhub Create
 def load_arguments_eventhub(self, _):
     with self.argument_context('eh eventhub create') as c:
         c.argument('resource_group_name', arg_type=resource_group_name_type)
         c.argument('namespace_name', options_list=['--namespace-name'], help='name of the Namespace')
-        c.argument('event_hub_name', options_list=['--name'], help='EventHub Name')
+        c.argument('event_hub_name', options_list=['--name'], help='name of Evnethub')
         c.argument('message_retention_in_days', options_list=['--message-retention-in-days'], type=int, help='Number of days to retain the events for this Event Hub, value should be 1 to 7 days')
         c.argument('partition_count', options_list=['--partition-count'], type=int, help='Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.')
         c.argument('status', options_list=['--status'], arg_type=get_enum_type(['Active', 'Disabled', 'Restoring', 'SendDisabled', 'ReceiveDisabled', 'Creating', 'Deleting', 'Renaming', 'Unknown']))
@@ -59,7 +60,7 @@ def load_arguments_eventhub(self, _):
         c.argument('capture_description_interval_in_seconds', type=int, options_list=['--capture-description-interval-in-seconds'], help='The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds')
         c.argument('capture_description_size_limit_in_bytes', type=int, options_list=['--capture_description-size-limit-in-bytes'], help='The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes')
         c.argument('destination_name', options_list=['--destination-name'], help='Name for capture destination')
-        c.argument('destination_storage_account_resource_id', options_list=['--message-retention-in-days'], help='Resource id of the storage account to be used to create the blobs')
+        c.argument('destination_storage_account_resource_id', options_list=['--destination-storage-account-resource-id'], help='Resource id of the storage account to be used to create the blobs')
         c.argument('destination_blob_container', options_list=['--destination-blob-container'], help='Blob container Name')
         c.argument('destination_archive_name_format', options_list=['--destination-archive-name-format'], help='Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order')
 

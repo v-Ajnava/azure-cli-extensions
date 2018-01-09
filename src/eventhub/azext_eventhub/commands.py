@@ -71,7 +71,7 @@ def load_command_table(self, _):
 
 # ConsumerGroup Region
     with self.command_group('eh consumergroup', eh_consumer_groups_util, client_factory=consumer_groups_mgmt_client_factory) as g:
-        g.custom_command('create', 'create_or_update')
+        g.command('create', 'create_or_update')
         g.command('show', 'get')
         g.command('list', 'list_by_event_hub')
         g.command('delete', 'delete')
