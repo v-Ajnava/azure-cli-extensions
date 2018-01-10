@@ -5,37 +5,37 @@
 
 from knack.help_files import helps
 
-helps['eh'] = """
+helps['eventhubs'] = """
     type: group
-    short-summary: Manage Azure EventHub namespace, eventhub, consumergroup and alias (Disaster Recovery Configuration)
+    short-summary: Manage Azure EventHub namespace, eventhub, consumergroup and Geo Disaster Recovery configuration - Alias
 
     """
 
-helps['eh namespace'] = """
+helps['eventhubs namespace'] = """
     type: group
     short-summary: Manage Azure EventHub namespace and authorization-rule
 
     """
 
-helps['eh eventhub'] = """
+helps['eventhubs eventhub'] = """
     type: group
     short-summary: Manage Azure EventHub eventhub and authorization-rule
 
     """
 
-helps['eh consumergroup'] = """
+helps['eventhubs consumergroup'] = """
     type: group
     short-summary: Manage Azure EventHub consumergroup
 
     """
 
-helps['eh alias'] = """
+helps['eventhubs georecovery-alias'] = """
     type: group
-    short-summary: Manage Azure EventHub Alias (Disaster Recovery Configuration)
+    short-summary: Manage Azure EventHub Geo Disaster Recovery configuration - Alias
 
     """
 
-helps['eh namespace check-name-availability'] = """
+helps['eventhubs namespace check-name-availability'] = """
     type: command
     short-summary: check for the availability of the given name for the Namespace
     examples:
@@ -44,7 +44,7 @@ helps['eh namespace check-name-availability'] = """
 
     """
 
-helps['eh namespace create'] = """
+helps['eventhubs namespace create'] = """
     type: command
     short-summary: Creates the EventHub Namespace
     examples:
@@ -54,7 +54,7 @@ helps['eh namespace create'] = """
 
     """
 
-helps['eh namespace show'] = """
+helps['eventhubs namespace show'] = """
     type: command
     short-summary: shows the Namespace Details
     examples:
@@ -63,7 +63,7 @@ helps['eh namespace show'] = """
 
     """
 
-helps['eh namespace list'] = """
+helps['eventhubs namespace list'] = """
     type: command
     short-summary: List the Namespaces by ResourceGroup or By subscription
     examples:
@@ -74,7 +74,7 @@ helps['eh namespace list'] = """
 
     """
 
-helps['eh namespace delete'] = """
+helps['eventhubs namespace delete'] = """
     type: command
     short-summary: Deletes the Namespaces
     examples:
@@ -83,7 +83,7 @@ helps['eh namespace delete'] = """
 
     """
 
-helps['eh namespace authorizationrule create'] = """
+helps['eventhubs namespace authorizationrule create'] = """
     type: command
     short-summary: Creates Authorization rule for the given Namespace
     examples:
@@ -93,7 +93,7 @@ helps['eh namespace authorizationrule create'] = """
 
     """
 
-helps['eh namespace authorizationrule get'] = """
+helps['eventhubs namespace authorizationrule get'] = """
     type: command
     short-summary: Shows the details of AuthorizatioRule
     examples:
@@ -103,7 +103,7 @@ helps['eh namespace authorizationrule get'] = """
 
     """
 
-helps['eh namespace authorizationrule list'] = """
+helps['eventhubs namespace authorizationrule list'] = """
     type: command
     short-summary: Shows the list of AuthorizatioRule by Namespace
     examples:
@@ -112,7 +112,7 @@ helps['eh namespace authorizationrule list'] = """
 
     """
 
-helps['eh namespace authorizationrule list-keys'] = """
+helps['eventhubs namespace authorizationrule list-keys'] = """
     type: command
     short-summary: Shows the connectionstrings of AuthorizatioRule for the namespace
     examples:
@@ -122,7 +122,7 @@ helps['eh namespace authorizationrule list-keys'] = """
 
     """
 
-helps['eh namespace authorizationrule regenerate-keys'] = """
+helps['eventhubs namespace authorizationrule regenerate-keys'] = """
     type: command
     short-summary: Regenerate the connectionstrings of AuthorizatioRule for the namespace.
     examples:
@@ -132,7 +132,7 @@ helps['eh namespace authorizationrule regenerate-keys'] = """
 
     """
 
-helps['eh namespace authorizationrule delete'] = """
+helps['eventhubs namespace authorizationrule delete'] = """
     type: command
     short-summary: Deletes the AuthorizatioRule of the namespace.
     examples:
@@ -142,7 +142,7 @@ helps['eh namespace authorizationrule delete'] = """
 
     """
 
-helps['eh eventhub create'] = """
+helps['eventhubs eventhub create'] = """
     type: command
     short-summary: Creates the EventHub Eventhub
     examples:
@@ -151,7 +151,7 @@ helps['eh eventhub create'] = """
 
     """
 
-helps['eh eventhub show'] = """
+helps['eventhubs eventhub show'] = """
     type: command
     short-summary: shows the Eventhub Details
     examples:
@@ -160,7 +160,7 @@ helps['eh eventhub show'] = """
 
     """
 
-helps['eh eventhub list'] = """
+helps['eventhubs eventhub list'] = """
     type: command
     short-summary: List the EventHub by Namepsace
     examples:
@@ -169,7 +169,7 @@ helps['eh eventhub list'] = """
 
     """
 
-helps['eh eventhub delete'] = """
+helps['eventhubs eventhub delete'] = """
     type: command
     short-summary: Deletes the Eventhub
     examples:
@@ -178,7 +178,7 @@ helps['eh eventhub delete'] = """
 
     """
 
-helps['eh eventhub authorizationrule create'] = """
+helps['eventhubs eventhub authorizationrule create'] = """
     type: command
     short-summary: Creates Authorization rule for the given Eventhub
     examples:
@@ -188,7 +188,7 @@ helps['eh eventhub authorizationrule create'] = """
 
     """
 
-helps['eh eventhub authorizationrule show'] = """
+helps['eventhubs eventhub authorizationrule show'] = """
     type: command
     short-summary: shows the details of AuthorizatioRule
     examples:
@@ -198,7 +198,7 @@ helps['eh eventhub authorizationrule show'] = """
 
     """
 
-helps['eh eventhub authorizationrule list'] = """
+helps['eventhubs eventhub authorizationrule list'] = """
     type: command
     short-summary: shows the list of AuthorizatioRule by Eventhub
     examples:
@@ -208,7 +208,7 @@ helps['eh eventhub authorizationrule list'] = """
 
     """
 
-helps['eh eventhub authorizationrule list-keys'] = """
+helps['eventhubs eventhub authorizationrule list-keys'] = """
     type: command
     short-summary: Shows the connectionstrings of AuthorizatioRule for the Eventhub.
     examples:
@@ -217,7 +217,7 @@ helps['eh eventhub authorizationrule list-keys'] = """
 
     """
 
-helps['eh eventhub authorizationrule regenerate-keys'] = """
+helps['eventhubs eventhub authorizationrule regenerate-keys'] = """
     type: command
     short-summary: Regenerate the connectionstrings of AuthorizatioRule for the namespace.
     examples:
@@ -226,7 +226,7 @@ helps['eh eventhub authorizationrule regenerate-keys'] = """
 
     """
 
-helps['eh eventhub authorizationrule delete'] = """
+helps['eventhubs eventhub authorizationrule delete'] = """
     type: command
     short-summary: Deletes the AuthorizatioRule of the Eventhub.
     examples:
@@ -235,7 +235,7 @@ helps['eh eventhub authorizationrule delete'] = """
 
     """
 
-helps['eh consumergroup create'] = """
+helps['eventhubs consumergroup create'] = """
     type: command
     short-summary: Creates the EventHub ConsumerGroup
     examples:
@@ -244,7 +244,7 @@ helps['eh consumergroup create'] = """
 
     """
 
-helps['eh consumergroup show'] = """
+helps['eventhubs consumergroup show'] = """
     type: command
     short-summary: Shows the ConsumerGroup Details
     examples:
@@ -253,7 +253,7 @@ helps['eh consumergroup show'] = """
 
     """
 
-helps['eh consumergroup list'] = """
+helps['eventhubs consumergroup list'] = """
     type: command
     short-summary: List the ComsumerGroup by Eventhub
     examples:
@@ -262,7 +262,7 @@ helps['eh consumergroup list'] = """
 
     """
 
-helps['eh consumergroup delete'] = """
+helps['eventhubs consumergroup delete'] = """
     type: command
     short-summary: Deletes the ConsumerGroup
     examples:
@@ -271,37 +271,37 @@ helps['eh consumergroup delete'] = """
 
     """
 
-helps['eh alias check_name_availability'] = """
+helps['eventhubs georecovery-alias check_name_availability'] = """
     type: command
-    short-summary: Check the availability of the Alias (Geo DR Configuration) Name
+    short-summary: Check the availability of the Geo Disaster Recovery configuration - Alias Name
     examples:
-        - name: Check the availability of the Alias (Geo DR Configuration) Name
+        - name: Check the availability of the Geo Disaster Recovery configuration - Alias Name
           text: helps['az eh alias check_name_availability --resource-group myresourcegroup --namespace-name primarynamespace
            --alias myaliasname']
 
     """
 
-helps['eh alias create'] = """
+helps['eventhubs georecovery-alias create'] = """
     type: command
-    short-summary: Creats Alias (Geo DR Configuration) for the give Namespace
+    short-summary: Creats Geo Disaster Recovery configuration - Alias for the give Namespace
     examples:
-        - name: Creats Alias (Geo DR Configuration) for the give Namespace
+        - name: Creats Geo Disaster Recovery configuration - Alias for the give Namespace
           text: helps['az eh alias create  --resource-group myresourcegroup --namespace-name primarynamespace --alias myaliasname --partner-namespace {id}']
 
     """
 
-helps['eh alias show'] = """
+helps['eventhubs georecovery-alias show'] = """
     type: command
-    short-summary: shows details of Alias (Geo DR Configuration) for Primay/Secondary Namespace
+    short-summary: shows details of Geo Disaster Recovery configuration - Alias for Primay/Secondary Namespace
     examples:
-        - name:  show details of Alias (Geo DR Configuration)  of the Primary Namespace
+        - name:  show details of Geo Disaster Recovery configuration - Alias  of the Primary Namespace
           text: helps['az eh alias show  --resource-group myresourcegroup --namespace-name primarynamespace --alias myaliasname']
-        - name:  Get details of Alias (Geo DR Configuration)  of the Secondary Namespace
+        - name:  Get details of Geo Disaster Recovery configuration - Alias  of the Secondary Namespace
            text: helps['az eh alias show  --resource-group myresourcegroup --namespace-name secondarynamespace --alias myaliasname']
 
     """
 
-helps['eh alias break-pairing'] = """
+helps['eventhubs georecovery-alias break-pairing'] = """
     type: command
     short-summary: Disables the Disaster Recovery and stops replicating changes from primary to secondary namespaces
     examples:
@@ -310,20 +310,20 @@ helps['eh alias break-pairing'] = """
 
     """
 
-helps['eh alias fail-over'] = """
+helps['eventhubs georecovery-alias fail-over'] = """
     type: command
-    short-summary: Envokes GEO DR failover and reconfigure the alias to point to the secondary namespace
+    short-summary: Envokes Geo Disaster Recovery configuration - Alias to point to the secondary namespace
     examples:
         - name:  Envokes GEO DR failover and reconfigure the alias to point to the secondary namespace
           text: helps['az eh alias fail-over  --resource-group myresourcegroup --namespace-name secondarynamespace --alias myaliasname']
 
     """
 
-helps['eh alias delete'] = """
+helps['eventhubs georecovery-alias delete'] = """
     type: command
-    short-summary: Delete Alias(Disaster Recovery configuration) request accepted
+    short-summary: Delete Geo Disaster Recovery configuration - Alias
     examples:
-        - name:  Delete Alias(Disaster Recovery configuration) request accepted
+        - name:  Delete Geo Disaster Recovery configuration - Alias
           text: helps['az eh alias delete  --resource-group myresourcegroup --namespace-name secondarynamespace --alias myaliasname']
 
     """
