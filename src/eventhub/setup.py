@@ -29,8 +29,8 @@ DEPENDENCIES = []
 setup(
     name='eventhub',
     version=VERSION,
-    description='An Azure CLI Extension to manage eventhub resources',
-    long_description='An Azure CLI Extension to manage eventhub resources',
+    description='An Azure CLI Extension to manage Event Hubs resources',
+    long_description='An Azure CLI Extension to manage Event Hubs resources',
     license='MIT',
     author='Ajit Navasare',
     author_email='v-ajnava@microsoft.com',
