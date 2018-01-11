@@ -84,7 +84,7 @@ def load_command_table(self, _):
         g.command('break-pairing', 'break_pairing')
         g.command('fail-over', 'fail_over')
         g.command('check-name-availability', 'check_name_availability')
-        g.command('list-authorization_rules', 'list_authorization_rules')
+        g.command('list-authorization-rules', 'list_authorization_rules')
         g.command('show-authorization-rule', 'get_authorization_rule')
         g.command('list-keys', 'list_keys')
         g.command('delete', 'delete')

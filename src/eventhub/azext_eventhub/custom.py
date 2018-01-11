@@ -47,7 +47,7 @@ def cli_namespaceautho_create(client, resource_group_name, namespace_name, name,
 
 # Eventhub Region
 def cli_eheventhub_create(client, resource_group_name, namespace_name, name, message_retention_in_days=None, partition_count=None, status=None,
-                          capture_description_enabled=None, capture_description_encoding=None, capture_description_interval_in_seconds=None, capture_description_size_limit_in_bytes=None, destination_name=None, destination_storage_account_resource_id=None, destination_blob_container=None, destination_archive_name_format=None):
+                          enabled=None, encoding=None, capture_interval_seconds=None, capture_size_limit_bytes=None, destination_name=None, storage_account_resource_id=None, blob_container=None, archive_name_format=None):
     eventhubparameter1 = Eventhub()
     if message_retention_in_days:
         eventhubparameter1.message_retention_in_days = message_retention_in_days
@@ -58,17 +58,17 @@ def cli_eheventhub_create(client, resource_group_name, namespace_name, name, mes
     if status:
         eventhubparameter1.status = status
 
-    if capture_description_enabled and capture_description_enabled is True:
+    if enabled and enabled is True:
         eventhubparameter1.capture_description = CaptureDescription(
-            enabled=capture_description_enabled,
-            encoding=capture_description_encoding,
-            interval_in_seconds=capture_description_interval_in_seconds,
-            size_limit_in_bytes=capture_description_size_limit_in_bytes,
+            enabled=enabled,
+            encoding=encoding,
+            interval_in_seconds=capture_interval_seconds,
+            size_limit_in_bytes=capture_size_limit_bytes,
             destination=Destination(
                 name=destination_name,
-                storage_account_resource_id=destination_storage_account_resource_id,
-                blob_container=destination_blob_container,
-                archive_name_format=destination_archive_name_format)
+                storage_account_resource_id=storage_account_resource_id,
+                blob_container=blob_container,
+                archive_name_format=archive_name_format)
         )
     print("Name of EventHub: {}".format(name))
     return client.create_or_update(resource_group_name, namespace_name, name, eventhubparameter1)
