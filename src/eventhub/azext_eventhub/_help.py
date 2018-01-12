@@ -13,7 +13,7 @@ helps['eventhubs'] = """
 
 helps['eventhubs namespace'] = """
     type: group
-    short-summary: Manage Azure Event Hubs namespace and authorization-rule
+    short-summary: Manage Azure Event Hubs namespace and authorizationrule
 
     """
 
@@ -35,7 +35,7 @@ helps['eventhubs georecovery-alias'] = """
 
     """
 
-helps['eventhubs namespace check-name-availability'] = """
+helps['eventhubs namespace exists'] = """
     type: command
     short-summary: check for the availability of the given name for the Namespace
     examples:
@@ -93,7 +93,7 @@ helps['eventhubs namespace authorizationrule create'] = """
 
     """
 
-helps['eventhubs namespace authorizationrule get'] = """
+helps['eventhubs namespace authorizationrule show'] = """
     type: command
     short-summary: Shows the details of AuthorizationRule
     examples:
@@ -112,9 +112,9 @@ helps['eventhubs namespace authorizationrule list'] = """
 
     """
 
-helps['eventhubs namespace authorizationrule list-keys'] = """
+helps['eventhubs namespace authorizationrule keys list'] = """
     type: command
-    short-summary: Shows the connectionstrings of AuthorizationRule for the namespace
+    short-summary: Shows the connection strings for namespace
     examples:
         - name: Shows the connectionstrings of AuthorizationRule for the namespace.
           text: az eventhubs namespace authorizationrule list-keys --resource-group myresourcegroup --namespace-name mynamespace
@@ -122,7 +122,7 @@ helps['eventhubs namespace authorizationrule list-keys'] = """
 
     """
 
-helps['eventhubs namespace authorizationrule regenerate-keys'] = """
+helps['eventhubs namespace authorizationrule keys renew'] = """
     type: command
     short-summary: Regenerate the connectionstrings of AuthorizationRule for the namespace.
     examples:
@@ -144,7 +144,7 @@ helps['eventhubs namespace authorizationrule delete'] = """
 
 helps['eventhubs eventhub create'] = """
     type: command
-    short-summary: Creates the EventHub Eventhub
+    short-summary: Creates the Event Hubs Eventhub
     examples:
         - name: Create a new Eventhub.
           text: az eventhubs eventhub create --resource-group myresourcegroup --namespace-name mynamespace --name myeventhub --message-retention-in-days 4 ---partition-count 15
@@ -208,7 +208,7 @@ helps['eventhubs eventhub authorizationrule list'] = """
 
     """
 
-helps['eventhubs eventhub authorizationrule list-keys'] = """
+helps['eventhubs eventhub authorizationrule  keys list'] = """
     type: command
     short-summary: Shows the connectionstrings of AuthorizationRule for the Eventhub.
     examples:
@@ -217,7 +217,7 @@ helps['eventhubs eventhub authorizationrule list-keys'] = """
 
     """
 
-helps['eventhubs eventhub authorizationrule regenerate-keys'] = """
+helps['eventhubs eventhub authorizationrule  keys renew'] = """
     type: command
     short-summary: Regenerate the connectionstrings of AuthorizationRule for the namespace.
     examples:
@@ -249,7 +249,7 @@ helps['eventhubs consumergroup show'] = """
     short-summary: Shows the ConsumerGroup Details
     examples:
         - name: Shows the ConsumerGroup details.
-          text: az eventhubs consumergroup get --resource-group myresourcegroup --namespace-name mynamespace --event-hub-name myeventhub --name myconsumergroup
+          text: az eventhubs consumergroup show --resource-group myresourcegroup --namespace-name mynamespace --event-hub-name myeventhub --name myconsumergroup
 
     """
 
@@ -271,22 +271,22 @@ helps['eventhubs consumergroup delete'] = """
 
     """
 
-helps['eventhubs georecovery-alias check_name_availability'] = """
+helps['eventhubs georecovery-alias exists'] = """
     type: command
-    short-summary: Check the availability of the Geo Disaster Recovery configuration - Alias Name
+    short-summary: Check the availability of the Geo Recovery - Alias Name
     examples:
         - name: Check the availability of the Geo Disaster Recovery configuration - Alias Name
-          text: az eventhubs alias check_name_availability --resource-group myresourcegroup --namespace-name primarynamespace
+          text: az eventhubs georecovery-alias check-name-availability --resource-group myresourcegroup --namespace-name primarynamespace
            --alias myaliasname
 
     """
 
 helps['eventhubs georecovery-alias create'] = """
     type: command
-    short-summary: Creats Geo Disaster Recovery configuration - Alias for the give Namespace
+    short-summary: Creates a Geo Recovery - Alias for the give Namespace
     examples:
         - name: Creats Geo Disaster Recovery configuration - Alias for the give Namespace
-          text: az eventhubs alias create  --resource-group myresourcegroup --namespace-name primarynamespace --alias myaliasname --partner-namespace {id}
+          text: az eventhubs georecovery-alias create  --resource-group myresourcegroup --namespace-name primarynamespace --alias myaliasname --partner-namespace {id}
 
     """
 
@@ -297,16 +297,16 @@ helps['eventhubs georecovery-alias show'] = """
         - name:  show details of Geo Disaster Recovery configuration - Alias  of the Primary Namespace
           text: az eventhubs alias show  --resource-group myresourcegroup --namespace-name primarynamespace --alias myaliasname
         - name:  Get details of Geo Disaster Recovery configuration - Alias  of the Secondary Namespace
-           text: az eventhubs alias show  --resource-group myresourcegroup --namespace-name secondarynamespace --alias myaliasname
+           text: az eventhubs georecovery-alias show  --resource-group myresourcegroup --namespace-name secondarynamespace --alias myaliasname
 
     """
 
-helps['eventhubs georecovery-alias break-pairing'] = """
+helps['eventhubs georecovery-alias break-pair'] = """
     type: command
     short-summary: Disables the Disaster Recovery and stops replicating changes from primary to secondary namespaces
     examples:
         - name:  Disables the Disaster Recovery and stops replicating changes from primary to secondary namespaces
-          text: az eventhubs alias break-pairing  --resource-group myresourcegroup --namespace-name primarynamespace --alias myaliasname
+          text: az eventhubs georecovery-alias break-pair  --resource-group myresourcegroup --namespace-name primarynamespace --alias myaliasname
 
     """
 
@@ -315,15 +315,15 @@ helps['eventhubs georecovery-alias fail-over'] = """
     short-summary: Envokes Geo Disaster Recovery configuration - Alias to point to the secondary namespace
     examples:
         - name:  Envokes GEO DR failover and reconfigure the alias to point to the secondary namespace
-          text: az eventhubs alias fail-over  --resource-group myresourcegroup --namespace-name secondarynamespace --alias myaliasname
+          text: az eventhubs georecovery-alias fail-over  --resource-group myresourcegroup --namespace-name secondarynamespace --alias myaliasname
 
     """
 
 helps['eventhubs georecovery-alias delete'] = """
     type: command
-    short-summary: Delete Geo Disaster Recovery configuration - Alias
+    short-summary: Delete Geo Recovery  - Alias
     examples:
         - name:  Delete Geo Disaster Recovery configuration - Alias
-          text: az eventhubs alias delete  --resource-group myresourcegroup --namespace-name secondarynamespace --alias myaliasname
+          text: az eventhubs georecovery-alias delete  --resource-group myresourcegroup --namespace-name secondarynamespace --alias myaliasname
 
     """

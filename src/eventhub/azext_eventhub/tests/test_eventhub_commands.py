@@ -69,14 +69,14 @@ class EHNamespaceCURDScenarioTest(ScenarioTest):
                  checks=[self.check('name', self.kwargs['defaultauthorizationrule'])])
 
         # Get Authorization Rule Listkeys
-        self.cmd('eventhubs namespace authorizationrule list-keys --resource-group {rg} --namespace-name {namespacename} --name {authoname}')
+        self.cmd('eventhubs namespace authorizationrule keys list --resource-group {rg} --namespace-name {namespacename} --name {authoname}')
 
         # Regeneratekeys - Primary
         self.cmd(
-            'eventhubs namespace authorizationrule regenerate-keys --resource-group {rg} --namespace-name {namespacename} --name {authoname} --key-name {primary}')
+            'eventhubs namespace authorizationrule keys renew --resource-group {rg} --namespace-name {namespacename} --name {authoname} --key {primary}')
 
         # Regeneratekeys - Secondary
-        self.cmd('eventhubs namespace authorizationrule regenerate-keys --resource-group {rg} --namespace-name {namespacename} --name {authoname} --key-name {secondary}')
+        self.cmd('eventhubs namespace authorizationrule keys renew --resource-group {rg} --namespace-name {namespacename} --name {authoname} --key {secondary}')
 
         # Delete AuthorizationRule
         self.cmd('eventhubs namespace authorizationrule delete --resource-group {rg} --namespace-name {namespacename} --name {authoname}')
@@ -134,14 +134,14 @@ class EHNamespaceCURDScenarioTest(ScenarioTest):
                  checks=[self.check('name', self.kwargs['authoname'])])
 
         # Get Authorization Rule Listkeys
-        self.cmd('eventhubs eventhub authorizationrule list-keys --resource-group {rg} --namespace-name {namespacename} --event-hub-name {eventhubname} --name {authoname}')
+        self.cmd('eventhubs eventhub authorizationrule keys list --resource-group {rg} --namespace-name {namespacename} --event-hub-name {eventhubname} --name {authoname}')
 
         # Regeneratekeys - Primary
-        regenrateprimarykeyresult = self.cmd('eventhubs eventhub authorizationrule regenerate-keys --resource-group {rg} --namespace-name {namespacename} --event-hub-name {eventhubname} --name {authoname} --key-name {primary}')
+        regenrateprimarykeyresult = self.cmd('eventhubs eventhub authorizationrule keys renew --resource-group {rg} --namespace-name {namespacename} --event-hub-name {eventhubname} --name {authoname} --key {primary}')
         self.assertIsNotNone(regenrateprimarykeyresult)
 
         # Regeneratekeys - Secondary
-        regenratesecondarykeyresult = self.cmd('eventhubs eventhub authorizationrule regenerate-keys --resource-group {rg} --namespace-name {namespacename} --event-hub-name {eventhubname} --name {authoname} --key-name {secondary}')
+        regenratesecondarykeyresult = self.cmd('eventhubs eventhub authorizationrule keys renew --resource-group {rg} --namespace-name {namespacename} --event-hub-name {eventhubname} --name {authoname} --key {secondary}')
         self.assertIsNotNone(regenratesecondarykeyresult)
 
         # Delete Eventhub AuthorizationRule
@@ -283,6 +283,13 @@ class EHNamespaceCURDScenarioTest(ScenarioTest):
         self.cmd('eventhubs georecovery-alias show  --resource-group {rg} --namespace-name {namespacenamesecondary} --alias {aliasname}')
 
         getaliasprimarynamespace = self.cmd('eventhubs georecovery-alias show  --resource-group {rg} --namespace-name {namespacenameprimary} --alias {aliasname}').output
+
+        # Get Authorization Rule
+        self.cmd('eventhubs georecovery-alias authorizationrule show --resource-group {rg} --namespace-name {namespacename} --name {authoname}',
+            checks=[self.check('name', self.kwargs['authoname'])])
+
+        # Get Default Authorization Rule
+        self.cmd('eventhubs georecovery-alias authorizationrule list --resource-group {rg} --namespace-name {namespacename}')
 
         # check for the Alias Provisioning succeeded
         while json.loads(getaliasprimarynamespace)['provisioningState'] != ProvisioningStateDR.succeeded.value:

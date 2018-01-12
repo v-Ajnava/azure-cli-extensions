@@ -32,17 +32,18 @@ def load_arguments_namespace(self, _):
         c.argument('resource_group_name', arg_type=resource_group_name_type)
 
     # region Namespace Authorizationrule
-    with self.argument_context('eventhubs namespace authorizationrule') as c:
-        c.argument('resource_group_name', arg_type=resource_group_name_type)
-        c.argument('namespace_name', options_list=['--namespace-name'], help='name of the Namespace')
-        c.argument('authorization_rule_name', options_list=['--name'], help='name of the Namespace AuthorizationRule')
+    for scope in ['eventhubs namespace authorizationrule', 'eventhubs namespace authorizationrule keys list', 'eventhubs namespace authorizationrule keys renew']:
+        with self.argument_context(scope) as c:
+            c.argument('resource_group_name', arg_type=resource_group_name_type)
+            c.argument('namespace_name', options_list=['--namespace-name'], help='name of the Namespace')
+            c.argument('authorization_rule_name', options_list=['--name'], help='name of the Namespace AuthorizationRule')
 
     with self.argument_context('eventhubs namespace authorizationrule create') as c:
         c.argument('accessrights', options_list=['--access-rights'],
                    help='Authorization rule rights of type list, allowed values are Send, Listen or Manage')
 
-    with self.argument_context('eventhubs namespace authorizationrule regenerate-keys') as c:
-        c.argument('key_type', options_list=['--key-name'], arg_type=get_enum_type(['PrimaryKey', 'SecondaryKey']))
+    with self.argument_context('eventhubs namespace authorizationrule keys renew') as c:
+        c.argument('key_type', options_list=['--key'], arg_type=get_enum_type(['PrimaryKey', 'SecondaryKey']))
 
 
 # region - Eventhub Create
@@ -76,16 +77,17 @@ def load_arguments_eventhub(self, _):
         c.argument('namespace_name', options_list=['--namespace-name'], help='name of the Namespace')
 
     # region EventHub Authorizationrule
-    with self.argument_context('eventhubs eventhub authorizationrule') as c:
-        c.argument('authorization_rule_name', options_list=['--name'], help='name of the EventHub AuthorizationRule')
-        c.argument('namespace', options_list=['--namespace-name'], help='name of the Namespace')
-        c.argument('event_hub_name', options_list=['--event-hub-name'], help='name of the EventHub')
+    for scope in ['eventhubs eventhub authorizationrule', 'eventhubs eventhub authorizationrule keys list', 'eventhubs eventhub authorizationrule keys renew']:
+        with self.argument_context(scope) as c:
+            c.argument('authorization_rule_name', options_list=['--name'], help='name of the EventHub AuthorizationRule')
+            c.argument('namespace', options_list=['--namespace-name'], help='name of the Namespace')
+            c.argument('event_hub_name', options_list=['--event-hub-name'], help='name of the EventHub')
 
     with self.argument_context('eventhubs eventhub authorizationrule create') as c:
-        c.argument('accessrights', options_list=['--access-rights'], help='Authorization rule rights of type list, allowed values are Send, Listen or Manage')
+        c.argument('accessrights', options_list=['--access-rights'], help='AuthorizationRule rights of type list, allowed values are Send, Listen or Manage')
 
-    with self.argument_context('eventhubs eventhub authorizationrule regenerate-keys') as c:
-        c.argument('key_type', options_list=['--key-name'], arg_type=get_enum_type(['PrimaryKey', 'SecondaryKey']))
+    with self.argument_context('eventhubs eventhub authorizationrule keys renew') as c:
+        c.argument('key_type', options_list=['--key'], arg_type=get_enum_type(['PrimaryKey', 'SecondaryKey']))
 
 
 # - ConsumerGroup Region
@@ -138,7 +140,7 @@ def load_arguments_geodr(self, _):
         c.argument('resource_group_name', arg_type=resource_group_name_type)
         c.argument('namespace_name', options_list=['--namespace-name'], help='name of the Namespace')
 
-    for scope in ['eventhubs georecovery-alias break-pairing', 'eventhubs georecovery-alias fail-over', 'eventhubs georecovery-alias list-authorization-rules']:
+    for scope in ['eventhubs georecovery-alias break-pairing', 'eventhubs georecovery-alias fail-over', 'eventhubs georecovery-alias authorizationrule list']:
         with self.argument_context(scope)as c:
             c.argument('resource_group_name', arg_type=resource_group_name_type)
             c.argument('namespace_name', options_list=['--namespace-name'],
@@ -146,7 +148,7 @@ def load_arguments_geodr(self, _):
             c.argument('alias', options_list=['--alias'],
                        help='Name of the Alias (Disaster Recovery)')
 
-    for scope in ['eventhubs georecovery-alias show-authorization-rule', 'eventhubs georecovery-alias list-keys']:
+    for scope in ['eventhubs georecovery-alias authorizationrule show', 'eventhubs georecovery-alias authorizationrule keys lists']:
         with self.argument_context(scope)as c:
             c.argument('resource_group_name', arg_type=resource_group_name_type)
             c.argument('namespace_name', options_list=['--namespace-name'],
